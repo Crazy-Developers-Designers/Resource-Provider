@@ -13,23 +13,35 @@ const Featured = () => {
           <h2 className="text-black text-center text-3xl font-bold mb-8">
             Featured resources
           </h2>
-          <div className="flex justify-center mb-8 space-x-6 bg-white shadow-orange shadow-orannge-500 ">
-            <button className="px-4 py-2  text-orange-500 rounded-t-md">
+          <div className="flex flex-wrap justify-center mb-8 space-x-2 bg-white shadow-orange shadow-orange-500 p-4 rounded-md">
+            <button className="px-4 py-2 text-orange-500 rounded-md">
               Design tools
             </button>
-            <button className="px-4 py-2 text-gray-600">Coding IDE</button>
-            <button className="px-4 py-2 text-gray-600">Frameworks</button>
-            <button className="px-4 py-2 text-gray-600">CSS</button>
-            <button className="px-4 py-2 text-gray-600">Patterns</button>
-            <button className="px-4 py-2 text-gray-600">Fonts</button>
-            <button className="px-4 py-2 text-gray-600">Icons</button>
-            <button className="px-4 py-2 text-gray-600">Images</button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">
+              Coding IDE
+            </button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">
+              Frameworks
+            </button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">CSS</button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">
+              Patterns
+            </button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">
+              Fonts
+            </button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">
+              Icons
+            </button>
+            <button className="px-4 py-2 text-gray-600 rounded-md">
+              Images
+            </button>
           </div>
         </div>
 
         {/* Featured Resources */}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="p-4 bg-white rounded-lg shadow-md">
             <img
               src="/figma.png"
@@ -41,8 +53,8 @@ const Featured = () => {
             </h3>
             <p className="text-black text-left pr-4">
               Figma and FigJam are design and collaboration software used by
-              professional designers, engineers and makers of all kinds. Use
-              them to ideate, create and share work-all free as a student or
+              professional designers, engineers, and makers of all kinds. Use
+              them to ideate, create and share work—all free as a student or
               teacher.
             </p>
           </div>
@@ -58,9 +70,9 @@ const Featured = () => {
             </h3>
             <p className="text-left text-black pr-4">
               Adobe XD is a vector design tool for web and mobile applications,
-              developed and published by Adobe inc. It is available for macOS
-              and Windows and there are versions for iOS and Android to help
-              preview the result of work directly on mobile application
+              developed and published by Adobe Inc. It is available for macOS
+              and Windows, and there are versions for iOS and Android to help
+              preview the result of work directly on mobile applications.
             </p>
           </div>
 
@@ -75,7 +87,7 @@ const Featured = () => {
             </h3>
             <p className="text-black text-left pr-4">
               Canva is a free, easy-to-use online graphic design tool. Use it to
-              create social media posts, presentations, posters, videos, logos
+              create social media posts, presentations, posters, videos, logos,
               and more.
             </p>
           </div>
