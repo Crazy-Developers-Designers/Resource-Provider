@@ -3,94 +3,70 @@
 
 import Link from "next/link";
 import { useState } from "react";
-// Add this import
+// Add this import for animations
 import { motion } from "framer-motion";
+import Image from "next/image"; // Import Image for the logo
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
+  { name: "About us", path: "/about" },
+  { name: "Our Processes", path: "/processes" },
+  { name: "Why us", path: "/whyus" },
+  { name: "Q & A", path: "/faqs" },
   { name: "Contact us", path: "/contact" },
-  { name: "Resources", path: "/resources" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  // Initialize router
 
   const topVariants = {
-    closed: {
-      rotate: 0,
-    },
-    opened: {
-      rotate: 45,
-      backgroundColor: "rgb(255,255,255)",
-    },
+    closed: { rotate: 0 },
+    opened: { rotate: 45, backgroundColor: "rgb(255,255,255)" },
   };
   const centerVariants = {
-    closed: {
-      opacity: 1,
-    },
-    opened: {
-      opacity: 0,
-    },
+    closed: { opacity: 1 },
+    opened: { opacity: 0 },
   };
   const bottomVariants = {
-    closed: {
-      rotate: 0,
-    },
-    opened: {
-      rotate: -45,
-      backgroundColor: "rgb(255,255,255)",
-    },
+    closed: { rotate: 0 },
+    opened: { rotate: -45, backgroundColor: "rgb(255,255,255)" },
   };
   const listVariants = {
-    closed: {
-      x: "100vw",
-    },
+    closed: { x: "100vw" },
     opened: {
       x: 0,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.2,
-      },
+      transition: { when: "beforeChildren", staggerChildren: 0.2 },
     },
   };
-
   const listItemVariants = {
-    closed: {
-      x: -10,
-      opacity: 0,
-    },
-    opened: {
-      x: 0,
-      opacity: 1,
-    },
+    closed: { x: -10, opacity: 0 },
+    opened: { x: 0, opacity: 1 },
   };
-
-  const isActive = (path) => router.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-black py-6 shadow-md z-50">
-      <div className="container mx-auto flex justify-between items-center mb-4">
-        <div className="hidden md:flex flex space-x-6">
+    <nav className="fixed top-0 left-0  w-full bg-white py-2 shadow-md z-50 lg:pl-8 ">
+      <div className="container mx-auto flex ml-2 items-center">
+        {/* Logo on the left */}
+        <Link href="/">
+          <Image
+            src="/Great-AI.png" // Path to your logo
+            alt="Logo"
+            width={140} // Adjust size as needed
+            height={70}
+            className="cursor-pointer"
+          />
+        </Link>
+
+        {/* Desktop Navigation Links with space between logo and links */}
+        <div className="hidden md:flex space-x-8 font-semi-bold ml-10">
           {navLinks.map((link, index) => (
             <Link key={index} href={link.path}>
-              <div className="text-white">{link.name}</div>
+              <div className="text-gray-600 text-lg">{link.name}</div>
             </Link>
           ))}
         </div>
-        <div className="hidden md:flex space-x-6">
-          <Link href="/signup">
-            <button className="px-3 py-2 bg-black ring-1 ring-white focus:outline-none text-white rounded-full hover:bg-gray-800">
-              Signup
-            </button>
-          </Link>
-          <Link href="/login">
-            <div className="px-4 py-2 bg-orange-500 text-black rounded-full hover:bg-yellow-600">
-              Login
-            </div>
-          </Link>
-        </div>
+
+        {/* Mobile Hamburger Menu */}
         <div className="md:hidden ml-auto mr-4">
           <button
             className="w-10 h-8 flex flex-col justify-between z-50 relative"
@@ -99,19 +75,21 @@ export default function Navbar() {
             <motion.div
               variants={topVariants}
               animate={open ? "opened" : "closed"}
-              className="w-10 h-1 bg-white rounded origin-left"
+              className="w-10 h-1 bg-black rounded origin-left"
             ></motion.div>
             <motion.div
               variants={centerVariants}
               animate={open ? "opened" : "closed"}
-              className="w-10 h-1 bg-white rounded"
+              className="w-10 h-1 bg-black rounded"
             ></motion.div>
             <motion.div
               variants={bottomVariants}
               animate={open ? "opened" : "closed"}
-              className="w-10 h-1 bg-white rounded origin-left"
+              className="w-10 h-1 bg-black rounded origin-left"
             ></motion.div>
           </button>
+
+          {/* Mobile Navigation Menu */}
           {open && (
             <motion.div
               variants={listVariants}
@@ -120,19 +98,16 @@ export default function Navbar() {
               className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
             >
               {navLinks.map((link) => (
-                <motion.div
-                  variants={listItemVariants}
-                  className=""
-                  key={link.name} // Fixed key and property names
-                >
-                  <Link href={link.path}>{link.name}</Link>
+                <motion.div variants={listItemVariants} key={link.name}>
+                  <Link href={link.path} onClick={() => setOpen(false)}>
+                    {link.name}
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
           )}
         </div>
       </div>
-      <hr className="border-1 border-gray-800" />
     </nav>
   );
 }

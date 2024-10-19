@@ -7,7 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Cambria", "system-ui", "Arial"], // Use your preferred sans-serif font here
+      },
       colors: {
+        violetblue: "#5633ff",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
