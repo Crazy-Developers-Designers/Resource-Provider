@@ -9,6 +9,7 @@ export default function Navbar() {
     { name: "About", path: "/about" },
     { name: "Contact us", path: "/contact" },
     { name: "Resources", path: "/resources" },
+    {name: "Blogs", path: '/blogs'}
   ];
 
   const isActive = (path) => router.pathname === path;
