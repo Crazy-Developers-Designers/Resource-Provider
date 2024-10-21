@@ -1,11 +1,14 @@
 import React from "react";
 import Image from "next/image";
 
+export const metadata = {
+  title: "About Developer Resources",
+};
+
 const About = () => {
   return (
     <div className="bg-black py-12 mt-12">
       <div className="container mx-auto px-4">
-        
         {/* Our Vision Section */}
         <section className="flex flex-col md:flex-row items-center justify-between mb-16  w-full">
           <div className="md:w-[60%] mb-8 md-12 p-6 md:mb-0">
@@ -76,7 +79,7 @@ const About = () => {
             />
           </div>
         </section>
-     
+
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">FAQs</h2>
           <div className="space-y-4">
@@ -92,7 +95,6 @@ const About = () => {
               question="How frequently are new resources added?"
               answer="We continuously add new resources and updates to ensure our platform remains a valuable tool for users."
             />
-           
           </div>
         </section>
       </div>

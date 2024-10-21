@@ -1,22 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   /* This will be the basic presets */
-  body {
-    /* Use a value from 100 to 900 */
-    font-family: "Kumbh Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  img {
-    max-width: 100%;
-  }
 
   ul {
     list-style-type: none;
