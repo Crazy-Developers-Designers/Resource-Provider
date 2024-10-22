@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-purple-600 text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -29,16 +30,13 @@ const Footer = () => {
 
         {/* Social Media Links */}
         <div className="flex space-x-4">
-          <Link href="#" className="text-orange-500 hover:text-white">
-            <Image src="/X-image.png" alt="github" width={40} height={40} />
-            <i className="fab fa-github "></i>
-          </Link>
-          <Link href="#" className="text-orange-500 hover:text-white">
+          <Link
+            href="https://web.facebook.com/profile.php?id=61566477825060"
+            target="_blank"
+            rel="noopener norefferer"
+            className="text-orange-500 hover:text-white"
+          >
             <Image src="/facebook.png" alt="facebook" width={40} height={40} />
-            <i className="fab fa-github"></i>
-          </Link>
-          <Link href="#" className="text-orange-500 hover:text-white">
-            <Image src="/github.png" alt="github" width={40} height={40} />
             <i className="fab fa-github"></i>
           </Link>
         </div>
@@ -46,7 +44,7 @@ const Footer = () => {
 
       {/* Bottom Footer Section */}
       <div className="container mx-auto text-center border-t border-gray-700 mt-8 pt-4">
-        <p>©2024 Developed and Maintained by Greatint AI</p>
+        <p>©{currentYear} Developed and Maintained by Greatint AI</p>
       </div>
 
       {/* Scroll to Top Button */}

@@ -24,7 +24,12 @@ const Contact = () => {
 
             <p className="mb-2 font-semibold text-lg">
               <Image src="/Email.jpg" alt="Email" width={35} height={35} />
-              info@greatint.co.ke
+              <Link
+                href="mailto:greatintai@gmail.com.com?subject=Inquiry&body=I%20would%20like%20to%20know%20more%20about%20your%20services."
+                className="text-blue-500"
+              >
+                greatintai@gmail.com
+              </Link>
             </p>
             <p className="mb-2 text-lg font-semibold">
               <Image src="/Phone.png" alt="" width={60} height={60} />
@@ -34,7 +39,12 @@ const Contact = () => {
               <strong>Follow Us</strong>
               <br />
               <div className="flex space-x-4 mt-4">
-                <Link href="#" className="text-green-500">
+                <Link
+                  href="https://web.facebook.com/profile.php?id=61566477825060"
+                  className="text-green-500"
+                  target="_blank"
+                  rel="noopener noreferrer" // Prevents security risks
+                >
                   <Image
                     src="/facebook.png"
                     alt="facebook"
@@ -43,15 +53,7 @@ const Contact = () => {
                     className="fab fa-facebook-f"
                   />
                 </Link>
-                <Link href="#" className="text-green-500">
-                  <Image
-                    src="/X-image.png"
-                    alt="X image"
-                    width={30}
-                    height={30}
-                    className="fab fa-twitter"
-                  />
-                </Link>
+
                 <a href="#" className="text-green-500">
                   <i className="fab fa-youtube"></i>
                 </a>
