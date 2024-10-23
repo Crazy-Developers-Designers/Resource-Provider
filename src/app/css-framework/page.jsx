@@ -1,111 +1,137 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const cssFrameworks = [
   {
     id: 1,
     name: "Bootstrap",
     description:
-      "A popular front-end framework for developing responsive websites.",
-    popularity: 150000,
-    image: "/path/to/bootstrap-image.png",
-    documentationLink: "https://getbootstrap.com/docs/",
+      "Bootstrap is one of the most widely-used front-end frameworks, originally developed by Twitter. It offers a comprehensive set of CSS and JavaScript components for building responsive, mobile-first websites. Bootstrap simplifies design with a grid system, prebuilt components, and utilities, making it a go-to choice for developers seeking rapid development and consistent results across browsers.",
+    popularity: 150,
+    image: "/Bootstrap.png",
+    documentation: "https://getbootstrap.com/docs/",
+    availability: true,
     rating: 5,
   },
   {
     id: 2,
     name: "Tailwind CSS",
-    description: "A utility-first CSS framework for rapid UI development.",
-    popularity: 200000,
-    image: "/path/to/tailwind-image.png",
-    documentationLink: "https://tailwindcss.com/docs",
+    description:
+      "Tailwind CSS is a utility-first CSS framework that allows developers to style applications directly by applying predefined classes in the HTML. It offers a high level of flexibility and customization, enabling rapid development without writing custom CSS. Tailwind focuses on utility classes rather than predefined components, making it highly adaptable to various design needs while maintaining consistency.",
+    popularity: 200,
+    image: "/Tailwind.png",
+    documentation: "https://tailwindcss.com/docs",
+    availability: true,
     rating: 5,
   },
   {
     id: 3,
     name: "Bulma",
-    description: "A modern CSS framework based on Flexbox.",
-    popularity: 100000,
-    image: "/path/to/bulma-image.png",
-    documentationLink: "https://bulma.io/documentation/",
+    description:
+      "Bulma is a modern CSS framework built with Flexbox, which makes it particularly strong for responsive and flexible web layouts. It offers a range of CSS classes for layout, typography, forms, and components, and is designed to be simple and minimalistic. Bulma provides a modular architecture, allowing developers to include only the necessary features, making it lightweight.",
+    popularity: 80,
+    image: "/Bulma.png",
+    documentation: "https://bulma.io/documentation/",
     rating: 4,
   },
   {
     id: 4,
     name: "Foundation",
-    description: "A responsive front-end framework by Zurb.",
-    popularity: 80000,
-    image: "/path/to/foundation-image.png",
-    documentationLink: "https://get.foundation/sites/docs/",
+    description:
+      "Foundation is a robust and highly customizable front-end framework developed by ZURB. It is aimed at building responsive websites and apps with a focus on mobile-first design. Foundation provides a set of tools for layout, navigation, media queries, and UI components, allowing developers to create both simple and complex designs. It's known for its flexibility and adaptability across devices.",
+    popularity: 48,
+    image: "/Foundation.png",
+    documentation: "https://get.foundation/sites/docs/",
     rating: 3,
   },
   {
     id: 5,
     name: "Materialize",
     description:
-      "A modern responsive front-end framework based on Material Design.",
-    popularity: 90000,
-    image: "/path/to/materialize-image.png",
-    documentationLink: "https://materializecss.com/getting-started.html",
+      "Materialize is a responsive front-end framework based on Google's Material Design principles. It provides a collection of components, animations, and styles to help developers create modern, mobile-first applications with a clean and consistent look. Materialize focuses on user experience and aesthetics, offering ready-made design elements like buttons, forms, modals, and more.",
+    popularity: 95,
+    image: "/Materialize.png",
+    documentation: "https://materializecss.com/getting-started.html",
+    availability: true,
     rating: 4,
   },
 ];
 
-const FrameworkCard = ({ framework }) => {
+export default function Frameworks() {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden p-4 max-w-xs mx-auto">
-      <img
-        src={framework.image}
-        alt={framework.name}
-        className="w-full h-40 object-cover"
-      />
-      <div className="p-4">
-        <h2 className="text-xl font-bold mb-2">{framework.name}</h2>
-        <p className="text-gray-600">{framework.description}</p>
+    <div className="container mx-auto p-6 min-h-screen mt-10">
+      <h1 className="text-3xl font-bold mb-6 text-center">Top Frameworks</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+        {cssFrameworks.map((framework, index) => (
+          <div key={index} className="flex flex-col sm:flex-row items-start">
+            {/* Image and Title Section */}
+            <div className="sm:w-1/2 flex flex-col justify-center items-center">
+              <h2 className="text-xl font-semibold mb-4 text-black text-center">
+                {framework.name}
+              </h2>
+              <Image
+                src={framework.image}
+                alt={framework.name}
+                width={100}
+                height={50}
+                className="rounded-lg"
+              />
+            </div>
 
-        {/* Popularity Section */}
-        <div className="flex items-center mt-3">
-          <div className="flex text-yellow-400 mr-2">
-            {[...Array(5)].map((_, index) => (
-              <svg
-                key={index}
-                className={`w-5 h-5 ${
-                  index < framework.rating ? "fill-current" : "text-gray-300"
-                }`}
-                fill="currentColor"
-                viewBox="0 0 24 24"
+            {/* Description, Rating, and Documentation Section */}
+            <div className="sm:w-1/2 sm:pr-2 mb-4 sm:mb-0 self-start">
+              <p className="mb-2 text-black">{framework.description}</p>
+              <div className="flex items-center mb-2">
+                <div className="flex items-center mt-3">
+                  <div className="flex text-yellow-400 mr-2">
+                    {[...Array(5)].map((_, index) => (
+                      <svg
+                        key={index}
+                        className={`w-5 h-5 ${
+                          index < framework.rating
+                            ? "fill-current"
+                            : "text-gray-300"
+                        }`}
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-gray-600">
+                    {framework.popularity
+                      ? `${framework.popularity}K from GitHub`
+                      : "No reviews"}
+                  </span>
+                </div>
+              </div>
+              <Link href="#" className="text-blue-500 hover:underline">
+                Learning resources:{" "}
+                <span
+                  className={
+                    framework.availability
+                      ? "text-green-500"
+                      : "text-orange-500"
+                  }
+                >
+                  {framework.availability ? "available" : "not available"}
+                </span>
+              </Link>
+              <br />
+              <Link
+                href={framework.documentation}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 mb-4 hover:underline"
               >
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-              </svg>
-            ))}
+                Documentation
+              </Link>
+            </div>
           </div>
-          <span className="text-gray-600">{framework.popularity} Stars</span>
-        </div>
-
-        {/* Link to Documentation */}
-        <a
-          href={framework.documentationLink}
-          className="text-purple-500 underline mt-4 inline-block"
-        >
-          Official Documentation
-        </a>
-      </div>
-    </div>
-  );
-};
-
-const CSSFrameworkPage = () => {
-  return (
-    <div className="bg-gray-50 py-4">
-      <h1 className="text-3xl font-bold text-center mb-10">
-        Popular CSS Frameworks
-      </h1>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {cssFrameworks.map((framework) => (
-          <FrameworkCard key={framework.id} framework={framework} />
         ))}
       </div>
     </div>
   );
-};
-
-export default CSSFrameworkPage;
+}

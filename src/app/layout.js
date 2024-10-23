@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <body
-        className={`${kumbsans.className} bg-black text-white flex flex-col min-h-screen`}
+        className={`${kumbsans.className}  text-white flex flex-col min-h-screen`}
       >
         {/* Include Navbar at the top */}
         <Navbar />
