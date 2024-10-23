@@ -14,15 +14,6 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Contact us", path: "/contact" },
-    { name: "Resources", path: "/resources" },
-    {name: "Blogs", path: '/blogs'}
-  ];
-
   const [open, setOpen] = useState(false);
   // Initialize router
 
@@ -75,7 +66,6 @@ export default function Navbar() {
       opacity: 1,
     },
   };
-
 
   const isActive = (path) => router.pathname === path;
 

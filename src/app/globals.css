@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* This will be the basic presets */
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+@layer components {
+}
