@@ -1,8 +1,7 @@
 // Featured.js
 
 "use client";
-
-import React from "react";
+import Link from "next/link";
 
 const Featured = () => {
   return (
@@ -17,13 +16,21 @@ const Featured = () => {
             <button className="px-4 py-2 text-orange-500 rounded-md">
               Design tools
             </button>
-            <button className="px-4 py-2 text-gray-600 rounded-md">
-              Coding IDE
-            </button>
-            <button className="px-4 py-2 text-gray-600 rounded-md">
-              Frameworks
-            </button>
-            <button className="px-4 py-2 text-gray-600 rounded-md">CSS</button>
+            <Link href="/coding-ide">
+              <button className="px-4 py-2 text-gray-600 rounded-md">
+                Coding IDE
+              </button>
+            </Link>
+            <Link href="/frameworks">
+              <button className="px-4 py-2 text-gray-600 rounded-md">
+                Frameworks
+              </button>
+            </Link>
+            <Link href="/css-framework">
+              <button className="px-4 py-2 text-gray-600 rounded-md">
+                CSS
+              </button>
+            </Link>
             <button className="px-4 py-2 text-gray-600 rounded-md">
               Patterns
             </button>
