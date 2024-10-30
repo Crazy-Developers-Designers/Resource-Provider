@@ -1,3 +1,7 @@
+import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
+import "./globals.css";
+
 /**Font management */
 import { Kumbh_Sans } from "next/font/google";
 const kumbsans = Kumbh_Sans({
@@ -13,9 +17,7 @@ export const metadata = {
   },
 };
 
-import Navbar from "@/_components/Navbar";
-import Footer from "@/_components/Footer";
-import "./globals.css";
+
 
 export default function RootLayout({ children }) {
   return (
