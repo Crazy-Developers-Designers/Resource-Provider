@@ -1,9 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 
-export const metadata = {
-  title: "About Developer Resources",
-};
+
 
 const About = () => {
   return (
@@ -95,6 +95,30 @@ const About = () => {
               question="How frequently are new resources added?"
               answer="We continuously add new resources and updates to ensure our platform remains a valuable tool for users."
             />
+            <FAQItem
+              question="How do I register an account?"
+              answer="To register an account, click on the 'Sign Up' button at the top right and fill in the required information."
+            />
+            <FAQItem
+              question="Can I contribute my own resources?"
+              answer="Yes, registered users can submit their own resources to be reviewed and added to the platform."
+            />
+            <FAQItem
+              question="Is there a way to save resources for later?"
+              answer="Yes, you can bookmark resources to easily find them again in your personal dashboard."
+            />
+            <FAQItem
+              question="What if I encounter an issue with a resource?"
+              answer="If you find an issue with a resource, please contact support or use the report function available on each resource page."
+            />
+            <FAQItem
+              question="Can I collaborate with others on projects?"
+              answer="Yes, our platform supports collaborative features where users can join project groups and share resources."
+            />
+            <FAQItem
+              question="How do I delete my account?"
+              answer="To delete your account, go to account settings, and under the privacy section, you'll find the delete account option."
+            />
           </div>
         </section>
       </div>
@@ -103,12 +127,17 @@ const About = () => {
 };
 
 const FAQItem = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="border-b border-gray-600 pb-4">
-      <h3 className="text-lg font-semibold text-gray-200 mb-2 cursor-pointer">
-        {question}
-      </h3>
-      <p className="text-gray-400">{answer}</p>
+      <div
+        className="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-200 mb-2"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3>{question}</h3>
+        <span className="text-xl">{isOpen ? "-" : "+"}</span>
+      </div>
+      {isOpen && <p className="text-gray-400 mt-2">{answer}</p>}
     </div>
   );
 };
