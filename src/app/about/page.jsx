@@ -1,87 +1,132 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-
-
+import { motion } from "framer-motion";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="bg-black py-12 mt-12">
+    <div className="bg-gradient-to-b from-indigo-950 to-black py-12 mt-12 min-h-screen">
       <div className="container mx-auto px-4">
         {/* Our Vision Section */}
-        <section className="flex flex-col md:flex-row items-center justify-between mb-16  w-full">
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center justify-between mb-16 w-full"
+        >
           <div className="md:w-[60%] mb-8 md-12 p-6 md:mb-0">
-            <h2 className="text-4xl font-bold mb-6 text-white">Our Vision</h2>
-            <p className="leading-loose text-gray-300 text-xl tracking-wide">
+            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              Our Vision
+            </h2>
+            <motion.p 
+              whileHover={{ scale: 1.02 }}
+              className="leading-loose text-gray-300 text-xl tracking-wide hover:text-purple-200 transition-colors duration-300"
+            >
               ResourceHub is a dynamic online resource platform. Our vision is
               to create a centralized hub where users can efficiently discover,
               share, and collaborate on research and educational projects. We
               strive to empower users by providing an engaging space for
               potential growth and seamless access to knowledge and tools.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="md:w-[35%] hidden md:block">
-            <Image
-              src="/vision.png"
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="md:w-[35%] hidden md:block"
+          >
+            <img
+              src="/illustration-flowing-conversation.svg"
               alt="Vision"
               width={400}
               height={300}
-              className="w-auto h-auto mx-auto rounded-[50%]"
+              className="w-auto h-auto mx-auto rounded-[50%] shadow-lg shadow-purple-500/20"
             />
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* Our Approach Section */}
-        <section className=" flex flex-col md:flex-row items-center justify-between mb-12">
-          <div className="md:w-[35%] hidden md:block">
-            <Image
-              src="/our_approach.png"
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center justify-between mb-12"
+        >
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="md:w-[35%] hidden md:block"
+          >
+            <img
+              src="/illustration-mockups.svg"
               alt="Approach"
               width={400}
               height={300}
-              className="w-auto h-auto mx-auto"
+              className="w-auto h-auto mx-auto shadow-lg shadow-blue-500/20"
             />
-          </div>
+          </motion.div>
           <div className="md:w-[60%] mb-8 md:mb-0">
-            <h2 className="text-4xl font-semibold mb-4">Our Approach</h2>
-            <p className="leading-loose text-gray-300 text-xl tracking-wide">
+            <h2 className="text-4xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+              Our Approach
+            </h2>
+            <motion.p 
+              whileHover={{ scale: 1.02 }}
+              className="leading-loose text-gray-300 text-xl tracking-wide hover:text-blue-200 transition-colors duration-300"
+            >
               Our approach prioritizes innovation, inclusivity, and
               sustainability. We are committed to providing users with
               cutting-edge solutions for their research or educational goals. By
               fostering a supportive and engaged community, we aim to create
               seamless collaboration between users, partners, and various
               stakeholders.
-            </p>
+            </motion.p>
           </div>
-        </section>
+        </motion.section>
 
         {/* Our Process section */}
-        <section className="flex flex-col md:flex-row items-center justify-between mb-12">
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center justify-between mb-12"
+        >
           <div className="md:w-[60%] mb-8 md:mb-0">
-            <h2 className="text-4xl font-semibold mb-4">Our Process</h2>
-            <p className="leading-loose text-gray-300 text-xl tracking-wide">
+            <h2 className="text-4xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
+              Our Process
+            </h2>
+            <motion.p 
+              whileHover={{ scale: 1.02 }}
+              className="leading-loose text-gray-300 text-xl tracking-wide hover:text-teal-200 transition-colors duration-300"
+            >
               Our process is a meticulous journey from idea inception to
               delivery of complete resources, following a user-centered
               approach. By working closely with users, we ensure that every
               project has a clear direction, tangible solutions, and impactful
               results.
-            </p>
+            </motion.p>
           </div>
-          <div className="md:w-[35%] hidden md:block">
-            <Image
-              src="/our_process.png"
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="md:w-[35%] hidden md:block"
+          >
+            <img
+              src="/illustration-grow-together.svg"
               alt="Process"
               width={400}
               height={300}
-              className="w-auto h-auto mx-auto"
+              className="w-auto h-auto mx-auto shadow-lg shadow-emerald-500/20"
             />
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">FAQs</h2>
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-400">
+            Frequently Asked Questions
+          </h2>
           <div className="space-y-4">
             <FAQItem
               question="What kind of resources can I find on this platform?"
@@ -120,7 +165,7 @@ const About = () => {
               answer="To delete your account, go to account settings, and under the privacy section, you'll find the delete account option."
             />
           </div>
-        </section>
+        </motion.section>
       </div>
     </div>
   );
@@ -128,17 +173,41 @@ const About = () => {
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
+  
   return (
-    <div className="border-b border-gray-600 pb-4">
-      <div
-        className="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-200 mb-2"
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="border-b border-gray-700 pb-4 hover:border-gray-500 transition-colors duration-300"
+    >
+      <motion.div
+        className="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-200 mb-2 hover:text-purple-300 transition-colors duration-300"
         onClick={() => setIsOpen(!isOpen)}
+        whileHover={{ scale: 1.01 }}
       >
         <h3>{question}</h3>
-        <span className="text-xl">{isOpen ? "-" : "+"}</span>
-      </div>
-      {isOpen && <p className="text-gray-400 mt-2">{answer}</p>}
-    </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-xl"
+        >
+          {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        </motion.div>
+      </motion.div>
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ 
+          height: isOpen ? "auto" : 0,
+          opacity: isOpen ? 1 : 0
+        }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden"
+      >
+        <p className="text-gray-400 mt-2 hover:text-gray-300 transition-colors duration-300">
+          {answer}
+        </p>
+      </motion.div>
+    </motion.div>
   );
 };
 
